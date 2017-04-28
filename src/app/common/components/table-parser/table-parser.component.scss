@@ -1,0 +1,32 @@
+.Table {
+    &__Row {
+        display: flex;
+        justify-content: flex-start;
+        align-content: flex-start;
+        align-items: center;
+    }
+    &__Cell {
+        margin: 3px;
+        background-color: gray;
+        width: 100%;
+    }
+}
+
+table {
+    width: 100%;
+
+    th{
+        cursor:pointer;
+    }
+    td {
+        padding: 10px;
+    }
+    tbody {
+        tr:nth-of-type(even) {
+            background-color: #f9f9f9;
+        }
+    }
+}
+a {
+    cursor: pointer;
+}

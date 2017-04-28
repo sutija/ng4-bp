@@ -1,0 +1,5 @@
+<div class="notifications">
+  <div class="notification-container animation-item-drop-in {{notification.type}}" *ngFor="let notification of notifications">
+    <div class="notification"><span>{{notification.message}}</span><a (click)="closeMe(notification);">X</a></div>
+  </div>
+</div>

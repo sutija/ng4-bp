@@ -1,0 +1,25 @@
+.OnOff {
+    &__Container {
+        height: 20px;
+        width: 60px;
+        background-color: #d2d2d2;
+        cursor: pointer;
+    }
+    &__Switch {
+        width: 30px;
+        height: 20px;
+        //transform: translate3d(-10px, -10px, 0);
+        background-color: gray;
+        transition: transform 0.1s ease-in;
+    }
+}
+
+.OnOff--On {
+    .OnOff__Container {
+        background-color: rgba(91, 171, 1, .23);
+    }
+    .OnOff__Switch {
+        background-color: #5eaf01;
+        transform: translate3d(30px, 0px, 0);
+    }
+}

@@ -1,0 +1,32 @@
+<div class="Table" style="display: none;">
+  <div class="Table__Header">
+    <div class="Table__Row">
+      <div *ngFor="let item of headers" class="Table__Cell">{{item}}</div>
+    </div>
+  </div>
+  <div class="Table__Body">
+    <div class="Table__Row" *ngFor="let item of tableData">
+      <div *ngFor="let key of headers" class="Table__Cell">{{item[key]}}</div>
+    </div>
+  </div>
+  <div class="Table__Footer"></div>
+</div>
+
+<table>
+  <thead>
+    <tr>
+      <th *ngFor="let item of headers" (click)="headerClick(item)" [ngClass]="{'hidden':!isVisible(item)}">{{setFieldName(item)}}</th>
+      <th *ngIf="showEditActions">&nbsp;</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of tableData">
+      <td *ngFor="let key of headers" (click)="itemClick({type:'standard', item: item, key: key})" [ngSwitch]="checkOnOff(key)" [ngClass]="{'hidden':!isVisible(key)}">
+        <span *ngSwitchCase="null">{{item[key]}}</span>
+        <app-on-off *ngSwitchCase="true" [data]="item[key]" (update)="item[key] = $event; updateActive(item);" ></app-on-off>
+      </td>
+      <td *ngIf="showEditActions"><a (click)="itemClick({type:'edit', item: item})">Edit</a> <a (click)="itemClick({type:'delete', item: item})">Delete</a></td>
+    </tr>
+  </tbody>
+  <tfoot></tfoot>
+</table>

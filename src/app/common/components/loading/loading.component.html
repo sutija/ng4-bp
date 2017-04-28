@@ -1,0 +1,19 @@
+<div class="Loading" [ngClass]="{'visible':isVisible()}">
+  <div class="Loading__Classic"></div>
+  <div class="Loading__Progress">
+    <div class="Card">
+      <div class="Card__Header">
+        {{title}}
+      </div>
+      <div class="Card__Content">
+        <div class="Progress">
+          <div class="Progress-progress" [style.width]="progress"></div>
+          <div class="Progress__Description">{{progressDescription}}</div>
+        </div>
+      </div>
+      <div class="Card__Footer">
+          Please wait...
+      </div>
+    </div>
+  </div>
+</div>
